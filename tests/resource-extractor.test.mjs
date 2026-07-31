@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 import JSZip from "jszip";
 import {
+  CATEGORY_ORDER,
   EXTENSION_FAMILY,
   PackageExtractionError,
   SUPPORTED_EXTENSIONS,
@@ -376,4 +378,42 @@ test("내부 파일·전체 해제 용량 제한", async () => {
     () => extractDocumentPackage(forgedDirectoryCount.buffer, "위조목록.docx"),
     (error) => error instanceof PackageExtractionError && error.code === "INVALID_PACKAGE",
   );
+});
+
+test("실제 사용 예제 PPTX의 이미지·사용 위치", async () => {
+  const bytes = await readFile(new URL("../examples/series5-comic-example.pptx", import.meta.url));
+  const data = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+  const result = await extractDocumentPackage(data, "series5-comic-example.pptx");
+  const images = result.resources.filter((resource) => resource.category === "image");
+
+  assert.equal(result.kind, "pptx");
+  assert.equal(result.resources.length, 42);
+  assert.equal(images.length, 5);
+  assert.deepEqual(
+    images.map((resource) => resource.usage.find((label) => label.startsWith("슬라이드"))),
+    ["슬라이드 1", "슬라이드 2", "슬라이드 3", "슬라이드 4", "슬라이드 5"],
+  );
+  assert.equal(result.resources.filter((resource) => resource.category === "style").length, 7);
+  assert.equal(result.resources.filter((resource) => resource.category === "structure").length, 30);
+});
+
+test("실제 사용 예제 EPUB의 다중 분류", async () => {
+  const bytes = await readFile(new URL("../examples/series5-resource-example.epub", import.meta.url));
+  const data = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+  const result = await extractDocumentPackage(data, "series5-resource-example.epub");
+  const counts = Object.fromEntries(
+    CATEGORY_ORDER.map((category) => [
+      category,
+      result.resources.filter((resource) => resource.category === category).length,
+    ]),
+  );
+
+  assert.equal(result.kind, "epub");
+  assert.equal(result.resources.length, 11);
+  assert.equal(counts.image, 2);
+  assert.equal(counts.audio, 1);
+  assert.equal(counts.attachment, 1);
+  assert.equal(counts.style, 1);
+  assert.equal(counts.script, 1);
+  assert.equal(counts.structure, 5);
 });
