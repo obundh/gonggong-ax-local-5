@@ -10,11 +10,33 @@ HWPX·DOCX·PPTX처럼 내부가 ZIP 패키지로 구성된 문서에서 이미�
 [Windows 릴리스](https://github.com/obundh/gonggong-ax-local-5/releases/tag/series5-v0.1.0) ·
 [실행용 ZIP](https://github.com/obundh/gonggong-ax-local-5/releases/download/series5-v0.1.0/GonggongAX-Series5-Resource-Extractor-0.1.0-win-x64.zip) ·
 [초보자 설명서](docs/BEGINNER_GUIDE.md) ·
-[실제 화면](#실제-실행-화면) ·
+[실제 화면](#실제-화면) ·
 [예제 PPTX](examples/series5-comic-example.pptx) ·
 [만화 5장](public/series5/comic/README.md)
 
 ![문서 리소스 추출기 소개](public/series5/comic/series5-comic-01.png)
+
+## 실제 화면
+
+공식 `series5-v0.1.0` Windows x64 실행용 ZIP을 압축 해제하고
+`시리즈5_실행.cmd`로 연 전용 창입니다. 업무 문서나 개인정보가 없는
+[공개 예제 PPTX](examples/series5-comic-example.pptx)를 사용했습니다.
+
+![시작 화면과 지원 형식](docs/screenshots/series5-actual-01-start.jpg)
+
+_시작 화면 · 지원 33종 / 미지원 범위_
+
+![PPTX 이미지 추출 결과와 미리보기](docs/screenshots/series5-actual-02-pptx-analysis.jpg)
+
+_PPTX 예제 · 이미지 5개 / 슬라이드 사용 위치 / 개별 저장_
+
+![PPTX 테마와 서식 분류](docs/screenshots/series5-actual-03-style-filter.jpg)
+
+_테마·서식 7개 · XML / RELS 파일_
+
+예제 분석 결과는 총 42개입니다. 이미지 5개, 테마·서식 7개, 문서 구조 30개로
+분류됩니다. 화면별 근거와 재현 순서는
+[초보자 설명서](docs/BEGINNER_GUIDE.md#7-문서-분석)에 있습니다.
 
 ## 다운로드
 
@@ -40,24 +62,6 @@ Node.js 설치와 관리자 권한은 필요하지 않습니다. ZIP 내부에�
 현재 포터블 EXE는 코드 서명되지 않았습니다. SmartScreen 경고가 나오면 공식
 저장소·파일명·SHA-256을 먼저 확인하세요. 확인 방법과 문제 해결 절차는
 [초보자 설명서](docs/BEGINNER_GUIDE.md)에 정리되어 있습니다.
-
-## 실제 실행 화면
-
-공식 `series5-v0.1.0` Windows x64 실행용 ZIP을 압축 해제하고
-`시리즈5_실행.cmd`로 연 전용 창입니다. 업무 문서나 개인정보가 없는
-[공개 예제 PPTX](examples/series5-comic-example.pptx)를 사용했습니다.
-
-![시작 화면과 지원 형식](docs/screenshots/series5-actual-01-start.jpg)
-
-_시작 화면 · 지원 33종 / 미지원 범위_
-
-![PPTX 이미지 추출 결과와 미리보기](docs/screenshots/series5-actual-02-pptx-analysis.jpg)
-
-_PPTX 예제 · 이미지 5개 / 슬라이드 사용 위치 / 개별 저장_
-
-예제 분석 결과는 총 42개입니다. 이미지 5개, 테마·서식 7개, 문서 구조 30개로
-분류됩니다. 화면별 근거와 재현 순서는
-[초보자 설명서](docs/BEGINNER_GUIDE.md#7-문서-분석)에 있습니다.
 
 ## 지원 형식
 
