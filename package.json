@@ -1,0 +1,52 @@
+{
+  "name": "gonggong-ax-local-series-5-document-resource-extractor",
+  "version": "0.1.0",
+  "private": true,
+  "author": "obundh",
+  "description": "브라우저 로컬에서 ZIP 패키지 문서의 리소스를 분류하고 추출하는 공공 AX 로컬 시리즈 5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/obundh/gonggong-ax-local-5.git"
+  },
+  "main": "desktop/main.mjs",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vinext dev",
+    "build": "vinext build",
+    "start": "vinext start",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/resource-extractor.test.mjs",
+    "desktop:series5": "npm run build && node scripts/build-series5-windows.mjs",
+    "release:comic": "node scripts/build-series5-comic.mjs"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "next": "16.2.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.47.0",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "electron": "^43.2.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "react-server-dom-webpack": "19.2.8",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.1.5",
+    "wrangler": "4.114.0"
+  },
+  "overrides": {
+    "postcss": "8.5.25",
+    "sharp": "0.35.3"
+  },
+  "type": "module"
+}
