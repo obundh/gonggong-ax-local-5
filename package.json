@@ -17,7 +17,7 @@
     "build": "vinext build",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/resource-extractor.test.mjs",
+    "test": "npm run build && node --experimental-strip-types --test tests/rendered-html.test.mjs tests/resource-extractor.test.mjs",
     "desktop:series5": "npm run build && node scripts/build-series5-windows.mjs",
     "release:comic": "node scripts/build-series5-comic.mjs"
   },

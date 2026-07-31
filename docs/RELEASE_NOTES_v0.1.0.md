@@ -13,7 +13,7 @@ SmartScreen 경고가 나오면 저장소 주소, 파일명, 아래 SHA-256을 �
 ## SHA-256
 
 ```text
-562d697653e163d217ccd32993b293d9c70c0ac79e848ace6540053e5a5b9d1a  GonggongAX-Series5-Resource-Extractor-0.1.0-win-x64.zip
+c364fdbb6c5e744a2306fa13e20aa8f05a26c44f4a447eb98ff340ff966518e3  GonggongAX-Series5-Resource-Extractor-0.1.0-win-x64.zip
 5cb044277177b041e54e4c20c0eec5857224748015ad0a2b1f1d73b9d506a4f2  GonggongAX-Series5-Beginner-Comic.zip
 ```
 
