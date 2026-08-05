@@ -1,6 +1,7 @@
 {
   "name": "gonggong-ax-local-series-5-document-resource-extractor",
   "version": "0.1.0",
+  "license": "UNLICENSED",
   "private": true,
   "author": "obundh",
   "description": "브라우저 로컬에서 ZIP 패키지 문서의 리소스를 분류하고 추출하는 공공 AX 로컬 시리즈 5",
